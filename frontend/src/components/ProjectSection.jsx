@@ -182,8 +182,8 @@ const projects = [
       "💻 Personal developer portfolio showcasing projects, skills, experience, and contact information with a modern responsive interface and interactive animations.",
     image: "/projects/portfolio.jpeg",
     tags: ["React", "Vite", "Tailwind CSS", "GSAP"],
-    demoURL: "",
-    githubURL: "",
+    demoURL: "https://portfolio-yq6m.onrender.com",
+    githubURL: "https://github.com/khushi-kushwaha/Portfolio.git",
     newsURL: ""
   }
 ];
