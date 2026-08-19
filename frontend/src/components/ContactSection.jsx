@@ -30,57 +30,100 @@ export const ContactSection = () => {
       })
   }
 
-    // Handle form submission
-    const handleSubmit =  async (e) => {
-        e.preventDefault();
-        if (isSubmitting) return;
-        setIsSubmitting(true);
-        setStatus({ success: null, message: "" });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        
-        try {
-        await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, { publicKey: PUBLIC_KEY });
-            setStatus({ success: true, message: "Message sent successfully." });
-            setFormDetails(formInitialDetails);
-            e.currentTarget.reset(); 
-        } catch (err) {
+    if (isSubmitting) return;
+
+    const form = e.currentTarget; // 👈 await se pehle save karo
+
+    setIsSubmitting(true);
+    setStatus({ success: null, message: "" });
+
+    try {
+        await emailjs.sendForm(
+            SERVICE_ID,
+            TEMPLATE_ID,
+            form,
+            {
+                publicKey: PUBLIC_KEY,
+            }
+        );
+
+        setStatus({
+            success: true,
+            message: "Message sent successfully!",
+        });
+
+        setFormDetails(formInitialDetails);
+        form.reset(); // 👈 saved form ko reset karo
+
+    } catch (err) {
+        console.error("EmailJS Error:", err);
+
         setStatus({
             success: false,
-            message:"Something went wrong, please try again later.",
+            message: "Something went wrong, please try again later.",
         });
-        } finally {
-            setIsSubmitting(false);
-        }
+
+    } finally {
+        setIsSubmitting(false);
+    }
+};
+
+    // Handle form submission
+    // const handleSubmit =  async (e) => {
+    //     e.preventDefault();
+        
+    //     if (isSubmitting) return;
+    //     setIsSubmitting(true);
+    //     setStatus({ success: null, message: "" });
+
+        
+    //     try {
+    //     await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, { publicKey: PUBLIC_KEY });
+    //         setStatus({ success: true, message: "Message sent successfully." });
+    //         setFormDetails(formInitialDetails);
+    //         e.currentTarget.reset(); 
+    //     } catch (err) {
+    //         console.error("EmailJS error:", err);
+    //     setStatus({
+    //         success: false,
+    //         message:"Something went wrong, please try again later.",
+    //     });
+    //     } finally {
+    //         setIsSubmitting(false);
+    //     }
 
 
 
-        // try {
-        // const res = await fetch(`${API_URL}/contact`, {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(formDetails),
-        // });
+    //     // try {
+    //     // const res = await fetch(`${API_URL}/contact`, {
+    //     //     method: "POST",
+    //     //     headers: { "Content-Type": "application/json" },
+    //     //     body: JSON.stringify(formDetails),
+    //     // });
 
-        // const result = await res.json().catch(() => ({}));
+    //     // const result = await res.json().catch(() => ({}));
 
-        // if (res.ok && result.code === 200) {
-        //     setStatus({ success: true, message: "Message sent successfully" });
-        //     setFormDetails(formInitialDetails); // reset only on success
-        // } else {
-        //     setStatus({
-        //     success: false,
-        //     message: result?.status || "Something went wrong, please try again later.",
-        //     });
-        // }
-        // } catch {
-        // setStatus({
-        //     success: false,
-        //     message: "Network error. Please check your connection and try again.",
-        // });
-        // } finally {
-        // setIsSubmitting(false);
-        // }
-    };
+    //     // if (res.ok && result.code === 200) {
+    //     //     setStatus({ success: true, message: "Message sent successfully" });
+    //     //     setFormDetails(formInitialDetails); // reset only on success
+    //     // } else {
+    //     //     setStatus({
+    //     //     success: false,
+    //     //     message: result?.status || "Something went wrong, please try again later.",
+    //     //     });
+    //     // }
+    //     // } catch {
+    //     // setStatus({
+    //     //     success: false,
+    //     //     message: "Network error. Please check your connection and try again.",
+    //     // });
+    //     // } finally {
+    //     // setIsSubmitting(false);
+    //     // }
+    // };
 
     return (
         // ==========================
