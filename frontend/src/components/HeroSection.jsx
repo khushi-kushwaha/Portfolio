@@ -59,7 +59,7 @@ export const HeroSection = () => {
                 Get In Touch
               </a>
               <a
-                href="https://drive.google.com/file/d/1tF6NRsKmTfBRKKFQqcpYCEmInM0o3SfD/view?usp=sharing"
+                href="https://drive.google.com/file/d/1kSgDyfEf_x9rgouLffMxWdkSPJwOon8A/view?usp=drive_link"
                 target="_blank"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >

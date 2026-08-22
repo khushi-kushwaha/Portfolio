@@ -103,20 +103,9 @@ import { ExternalLink, Github, ArrowRight, Newspaper } from "lucide-react";
 // ]
 
 const projects = [
-  {
-    id: 1,
-    title: "ServiDrink",
-    description:
-      "🍹 Full-stack PERN web application where users can search drinks, explore restaurants, rate products, save favorites, and manage blocked venues.",
-    image: "/projects/serviDrinkProject.jpeg",
-    tags: ["PostgreSQL", "Express", "React", "Node.js"],
-    demoURL: "https://servidrinkfrontend.onrender.com",
-    githubURL: "https://github.com/khushi-kushwaha/ServiDrink.git",
-    newsURL: ""
-  },
 
-  {
-  id: 2,
+   {
+  id: 1,
   title: "Realtime Chat Application",
   description:
     "💬 Full-stack real-time chat application designed for instant communication with a responsive interface and real-time messaging functionality.",
@@ -128,7 +117,31 @@ const projects = [
 },
 
   {
+  id: 2,
+  title: "Digital Site Survey Platform",
+  description:
+    "📡 Full-stack site survey platform for infrastructure planning and connectivity optimization, featuring blueprint uploads, RF scanning, site labeling, checklists, and real-time survey progress tracking.",
+  image: "/projects/siteSurveyProject.jpeg",
+  tags: ["React.js", "Spring Boot", "MySQL", "REST API"],
+  demoURL: "https://drive.google.com/file/d/1OrfIXJZQVKbUaeaE_8NTUMkwQczEbN8m/view?usp=drive_link",
+  githubURL: "",
+  newsURL: ""
+},
+  {
     id: 3,
+    title: "ServiDrink",
+    description:
+      "🍹 Full-stack PERN web application where users can search drinks, explore restaurants, rate products, save favorites, and manage blocked venues.",
+    image: "/projects/serviDrinkProject.jpeg",
+    tags: ["PostgreSQL", "Express", "React", "Node.js"],
+    demoURL: "https://servidrinkfrontend.onrender.com",
+    githubURL: "https://github.com/khushi-kushwaha/ServiDrink.git",
+    newsURL: ""
+  },
+
+
+  {
+    id: 4,
     title: "PERN Store",
     description:
       "🛍️ Full-stack e-commerce application, featuring product browsing, authentication, cart management, and online payment integration.",
@@ -140,7 +153,7 @@ const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "Coca-Cola Themed Website",
     description:
       "🥤 Modern React-based product website inspired by Coca-Cola, featuring interactive UI, smooth animations, responsive design, and an engaging product presentation.",
@@ -152,7 +165,7 @@ const projects = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "Selemen Product Website",
     description:
       "🛍️ Responsive product-focused website with modern UI, interactive sections, smooth animations, and a clean user experience.",
@@ -164,7 +177,7 @@ const projects = [
   },
 
   {
-    id: 6,
+    id: 7,
     title: "OBYS Agency Website",
     description:
       "🎨 Creative agency website recreated with modern frontend technologies, featuring smooth scrolling, advanced animations, interactive sections, and responsive design.",
@@ -176,7 +189,7 @@ const projects = [
   },
 
   {
-    id: 7,
+    id: 8,
     title: "Portfolio Website",
     description:
       "💻 Personal developer portfolio showcasing projects, skills, experience, and contact information with a modern responsive interface and interactive animations.",
