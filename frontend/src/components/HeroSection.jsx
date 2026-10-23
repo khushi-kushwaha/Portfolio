@@ -1,10 +1,31 @@
+import { useState, useEffect } from "react";
 import { ArrowDown } from "lucide-react";
 import headerImg from "/hero/memoji.png";
+import headerImg2 from "/hero/memoji2.png";
+import headerImg3 from "/hero/memoji3.png";
 
 // ==========================
 // Hero Section Component
 // ==========================
 export const HeroSection = () => {
+  const [activeImage, setActiveImage] = useState(0);
+
+  const images = [headerImg, headerImg2, headerImg3];
+
+  // Automatically change image every 10 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % images.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // Change image on click
+  const changeImage = () => {
+    setActiveImage((prev) => (prev + 1) % images.length);
+  };
+
   return (
     <section
       id="hero"
@@ -15,17 +36,20 @@ export const HeroSection = () => {
       ====================== */}
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
-          
+
           {/* ======================
               Hero Image
           ====================== */}
           <div className="flex justify-center pt-8">
-          <img
-            src={headerImg}
-            alt="Hero"
-            className="w-50 md:w-80 animate-float"
-          />
+            <img
+              key={activeImage}
+              src={images[activeImage]}
+              alt="Hero"
+              onClick={changeImage}
+              className="w-50 md:w-80 cursor-pointer animate-float animate-image-change"
+            />
           </div>
+
           {/* ======================
               Hero Title (Animated)
           ====================== */}
@@ -43,31 +67,26 @@ export const HeroSection = () => {
               Subtitle / Tagline
           ====================== */}
           <div className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-center space-y-2 opacity-0 animate-fade-in-delay-3">
-          
-          <p>Software Engineer</p>
-          {/* <p className="italic">✨Be your own fairy godmother✨</p> */}
-        </div>
-        
-           
+            <p>Software Engineer</p>
+            {/* <p className="italic">✨Be your own fairy godmother✨</p> */}
+          </div>
+
           {/* ======================
               Call To Action (Button)
           ====================== */}
-          
-
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center animate-fade-in-delay-4">
-              <a href="#contact" className="cosmic-button">
-                Get In Touch
-              </a>
-              <a
-                href="https://drive.google.com/file/d/1kSgDyfEf_x9rgouLffMxWdkSPJwOon8A/view?usp=drive_link"
-                target="_blank"
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
-              >
-                My Resume
-              </a>
-            </div>
+            <a href="#contact" className="cosmic-button">
+              Get In Touch
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1kSgDyfEf_x9rgouLffMxWdkSPJwOon8A/view?usp=drive_link"
+              target="_blank"
+              className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+            >
+              My Resume
+            </a>
+          </div>
 
-          
         </div>
       </div>
 
